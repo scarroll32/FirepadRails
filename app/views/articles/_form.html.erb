@@ -1,10 +1,8 @@
-
-
-<%= form_with(model: article, local: true, class: "form-horizontal" ) do |form| %>
+<%= form_for @article,
+      html: { class: "form-horizontal", id: 'article-form' } do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
       <ul>
       <% article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -17,10 +15,8 @@
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
-  </div>
+  <%= form.hidden_field :rendered_description %>
+  <%= form.hidden_field :raw_description %>
 
   <div class="form-group">
     <%= form.submit 'Save', class: 'btn btn-primary' %>
