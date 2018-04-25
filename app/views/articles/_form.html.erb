@@ -1,4 +1,6 @@
-<%= form_with(model: article, local: true) do |form| %>
+
+
+<%= form_with(model: article, local: true, class: "form-horizontal" ) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -10,28 +12,18 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :raw_description %>
-    <%= form.text_area :raw_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rendered_description %>
-    <%= form.text_area :rendered_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
   </div>
 <% end %>
+<div id="firepad-container"></div>

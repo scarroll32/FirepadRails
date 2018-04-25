@@ -17,3 +17,19 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+/*
+$(document).ready(function(){
+  if($('#firepad-container').length > 0 ) {
+    console.log('initFirepad');
+    initFirepad();
+  }
+});
+*/
+
+$(document).on('turbolinks:load', function() {
+  if($('#firepad-container').length > 0 ) {
+    console.log('initFirepad');
+    initFirepad();
+  }
+});
